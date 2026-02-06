@@ -5,6 +5,47 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Consumidores": {
+      "get": {
+        "tags": [
+          "Consumidores"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Consumidores"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Consumidore"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Consumidore"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Consumidore"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Supermercado/productos": {
       "post": {
         "tags": [
@@ -34,9 +75,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Supermercado/consumidores": {
+      },
       "get": {
         "tags": [
           "Supermercado"
@@ -51,6 +90,37 @@
   },
   "components": {
     "schemas": {
+      "Consumidore": {
+        "type": "object",
+        "properties": {
+          "consumidorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Producto": {
         "type": "object",
         "properties": {
@@ -86,6 +156,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Consumidores"
+    },
     {
       "name": "Supermercado"
     }

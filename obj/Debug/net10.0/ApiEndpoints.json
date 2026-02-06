@@ -1,12 +1,28 @@
 [
   {
-    "ContainingType": "SupermercadoController",
+    "ContainingType": "ConsumidoresController",
     "Method": "GetConsumidores",
-    "RelativePath": "api/Supermercado/consumidores",
+    "RelativePath": "api/Consumidores",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsumidoresController",
+    "Method": "CrearConsumidor",
+    "RelativePath": "api/Consumidores",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "parcial1.Domain.Consumidore",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -23,6 +39,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermercadoController",
+    "Method": "GetProductos",
+    "RelativePath": "api/Supermercado/productos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

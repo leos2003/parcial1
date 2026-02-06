@@ -13,7 +13,8 @@ public class SupermercadoController : ControllerBase
         _context = context;
     }
 
-    // POST: api/Supermercado/productos
+    //POST: api/Supermercado/productos
+
     [HttpPost("productos")]
     public async Task<IActionResult> CrearProducto([FromBody] Producto producto)
     {
@@ -25,12 +26,12 @@ public class SupermercadoController : ControllerBase
 
         return CreatedAtAction(nameof(CrearProducto), new { id = producto.ProductoId }, producto);
     }
-
-    // GET: api/Supermercado/consumidores
-    [HttpGet("consumidores")]
-    public async Task<IActionResult> GetConsumidores()
+    // GET: api/Supermercado/productos
+    [HttpGet("productos")]
+    public async Task<IActionResult> GetProductos()
     {
-        var consumidores = await _context.Consumidores.ToListAsync();
-        return Ok(consumidores);
+        var productos = await _context.Productos.ToListAsync();
+        return Ok(productos);
     }
+
 }
