@@ -1,0 +1,28 @@
+[
+  {
+    "ContainingType": "SupermercadoController",
+    "Method": "GetConsumidores",
+    "RelativePath": "api/Supermercado/consumidores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SupermercadoController",
+    "Method": "CrearProducto",
+    "RelativePath": "api/Supermercado/productos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "producto",
+        "Type": "parcial1.Domain.Producto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
