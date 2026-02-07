@@ -33,5 +33,30 @@ public class SupermercadoController : ControllerBase
         var productos = await _context.Productos.ToListAsync();
         return Ok(productos);
     }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> EliminarProducto(int id)
+    {
+        var producto = await _context.Productos.FindAsync(id);
+        if (producto == null)
+            return NotFound();
+
+        _context.Productos.Remove(producto);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> ActualizarProducto(int id, Producto producto)
+    {
+        if (id != producto.ProductoId)
+            return BadRequest();
+
+        _context.Entry(producto).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
 
 }

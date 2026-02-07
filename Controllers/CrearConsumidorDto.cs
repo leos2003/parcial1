@@ -13,12 +13,24 @@ public class ConsumidoresController : ControllerBase
         _context = context;
     }
 
-    // GET: api/Consumidores
+    // GET
     [HttpGet]
     public async Task<IActionResult> GetConsumidores()
     {
         var consumidores = await _context.Consumidores.ToListAsync();
         return Ok(consumidores);
+    }
+
+    // GET
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetConsumidor(int id)
+    {
+        var consumidor = await _context.Consumidores.FindAsync(id);
+
+        if (consumidor == null)
+            return NotFound("Consumidor no encontrado");
+
+        return Ok(consumidor);
     }
 
     // POST: api/Consumidores
@@ -40,8 +52,45 @@ public class ConsumidoresController : ControllerBase
         _context.Consumidores.Add(consumidor);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetConsumidores),
+        return CreatedAtAction(nameof(GetConsumidor),
             new { id = consumidor.ConsumidorId },
             consumidor);
+    }
+
+    // PUT
+    [HttpPut("{id}")]
+    public async Task<IActionResult> ActualizarConsumidor(int id, [FromBody] Consumidore dto)
+    {
+        if (dto == null)
+            return BadRequest("Datos inválidos");
+
+        var consumidor = await _context.Consumidores.FindAsync(id);
+
+        if (consumidor == null)
+            return NotFound("Consumidor no encontrado");
+
+        consumidor.Nombre = dto.Nombre;
+        consumidor.Apellido = dto.Apellido;
+        consumidor.Email = dto.Email;
+        consumidor.Telefono = dto.Telefono;
+
+        await _context.SaveChangesAsync();
+
+        return Ok(consumidor);
+    }
+
+    // DELETE
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> EliminarConsumidor(int id)
+    {
+        var consumidor = await _context.Consumidores.FindAsync(id);
+
+        if (consumidor == null)
+            return NotFound("Consumidor no encontrado");
+
+        _context.Consumidores.Remove(consumidor);
+        await _context.SaveChangesAsync();
+
+        return NoContent(); 
     }
 }

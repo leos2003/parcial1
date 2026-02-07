@@ -3,7 +3,7 @@ using parcial1.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔹 Servicios
+// Servicios
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<SupermercadoDbContext>(options =>
@@ -12,10 +12,10 @@ builder.Services.AddDbContext<SupermercadoDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// 🔹 Build
+//  Build
 var app = builder.Build();
 
-// 🔹 Middleware
+//  Middleware
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

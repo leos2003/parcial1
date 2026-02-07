@@ -160,3 +160,4 @@ C:\Users\leand\OneDrive\Desktop\TRABAJO DE CLASE\parcial1\bin\Debug\net10.0\runt
 C:\Users\leand\OneDrive\Desktop\TRABAJO DE CLASE\parcial1\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\leand\OneDrive\Desktop\TRABAJO DE CLASE\parcial1\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\leand\OneDrive\Desktop\TRABAJO DE CLASE\parcial1\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\leand\OneDrive\Desktop\TRABAJO DE CLASE\parcial1\obj\Debug\net10.0\parcial1.sourcelink.json
